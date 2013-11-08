@@ -10,6 +10,9 @@
 (unless (package-installed-p 'flymake-ruby)
   (package-install 'flymake-ruby))
 
+(unless (package-installed-p 'rvm)
+  (package-install 'rvm))
+
 (defun ruby-insert-end () 
   "Insert \"end\" at point and reindent current line." 
   (interactive) 
@@ -17,10 +20,12 @@
   (ruby-indent-line t) 
   (end-of-line))
 
+
 (add-hook 'ruby-mode-hook
       (lambda ()
 	(require 'ruby-electric)
 	(require 'rinari)
+	(require 'rvm)
 	(require 'rspec-mode)
 	(defadvice rspec-compile (around rspec-compile-around)
 	  "Use BASH shell for running the specs because of ZSH issues."
