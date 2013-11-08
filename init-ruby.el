@@ -10,6 +10,13 @@
 (unless (package-installed-p 'flymake-ruby)
   (package-install 'flymake-ruby))
 
+(defun ruby-insert-end () 
+  "Insert \"end\" at point and reindent current line." 
+  (interactive) 
+  (insert "end") 
+  (ruby-indent-line t) 
+  (end-of-line))
+
 (add-hook 'ruby-mode-hook
       (lambda ()
 	(require 'ruby-electric)
