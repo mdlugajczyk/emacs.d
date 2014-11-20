@@ -22,3 +22,4 @@
 (load-config "web.el")
 (load-config "python")
 (load-config "tex")
+(load-config "fds.el")
