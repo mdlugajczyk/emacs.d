@@ -21,3 +21,4 @@
 (load-config "ruby.el")
 (load-config "projectile.el")
 (load-config "web.el")
+(load-config "fds.el")
