@@ -4,7 +4,6 @@
 ;; Start the emacs server, so that emacsclient can connect to it.
 (server-start)
 
-
 (defun load-config (config)
   (load (concat "~/.emacs.d/init-" config)))
 
@@ -21,3 +20,5 @@
 (load-config "ruby.el")
 (load-config "projectile.el")
 (load-config "web.el")
+(load-config "python")
+(load-config "tex")
