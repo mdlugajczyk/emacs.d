@@ -20,10 +20,10 @@
 (unless (package-installed-p 'ac-nrepl)
   (package-install 'ac-nrepl))
 (require 'ac-nrepl)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(require 'auto-complete)
+;; (eval-after-load "auto-complete"
+;;   '(add-to-list 'ac-modes 'nrepl-mode))
+;; (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+;; (require 'auto-complete)
 (unless (package-installed-p 'cider)
   (package-install 'cider))
 
@@ -34,10 +34,10 @@
   (package-install 'cider))
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete"
-   '(add-to-list 'ac-modes 'nrepl-mode))
+;; (eval-after-load "auto-complete"
+;;    '(add-to-list 'ac-modes 'nrepl-mode))
 
 
 (eval-after-load 'paredit-mode
   '(define-key paredit-mode-map (kbd "C-h") 'paredit-backward-delete))
-(global-auto-complete-mode)
+;; (global-auto-complete-mode)
