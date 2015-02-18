@@ -99,3 +99,9 @@ int main(void) {
 };
 "))))
 
+(unless (package-installed-p 'nyan-mode)
+  (install-package 'nyan-mode))
+
+(when window-system
+  (nyan-mode))
+

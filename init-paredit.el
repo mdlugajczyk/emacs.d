@@ -7,5 +7,6 @@
                'lisp-mode-hook
                'scheme-mode-hook
 	       'clojure-mode-hook
+	       'racket-mode-hook
                ))
   (add-hook hook '(lambda () (paredit-mode 1))))

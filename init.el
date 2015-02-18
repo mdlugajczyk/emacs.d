@@ -7,8 +7,8 @@
 (defun load-config (config)
   (load (concat "~/.emacs.d/init-" config)))
 
-(load-config "custom.el")
 (load-config "package-manager.el")
+(load-config "custom.el")
 (load-config "paredit.el")
 (load-config "color-theme.el")
 (load-config "clojure.el")
@@ -22,4 +22,6 @@
 (load-config "web.el")
 (load-config "python")
 (load-config "tex")
-(load-config "fds.el")
+;(load-config "fds.el")
+
+(exec-path-from-shell-initialize)
