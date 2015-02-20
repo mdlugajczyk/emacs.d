@@ -22,7 +22,8 @@
 (load-config "web.el")
 (load-config "python")
 (load-config "tex")
-(load-config "fds.el")
+(if (file-exists-p "fds.el")
+    (load-config "fds.el"))
 
 (unless (package-installed-p 'exec-path-from-shell)
   (install-package  'exec-path-from-shell))
