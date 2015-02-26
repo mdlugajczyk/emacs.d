@@ -17,7 +17,8 @@
 
 (setq x-select-enable-clipboard t)
 
-(setq default-directory "~/")
+(if (eq system-type 'darwin)
+    (setq default-directory "~/"))
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
@@ -105,3 +106,7 @@ int main(void) {
 (when window-system
   (nyan-mode))
 
+(defun restart-server ()
+  (interactive)
+  (server-force-delete)
+  (server-start))
