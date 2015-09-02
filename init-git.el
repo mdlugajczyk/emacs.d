@@ -1,2 +1,1 @@
-(unless (package-installed-p 'magit)
-  (package-install 'magit))
+(maybe-install-package 'magit)

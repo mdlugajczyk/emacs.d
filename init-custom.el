@@ -100,8 +100,14 @@ int main(void) {
 };
 "))))
 
-(unless (package-installed-p 'nyan-mode)
-  (install-package 'nyan-mode))
+
+(defun maybe-install-package (package)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+;; (unless (package-installed-p 'nyan-mode)
+;;   (package-install 'nyan-mode))
+(maybe-install-package 'nyan-mode)
 
 (when window-system
   (nyan-mode))
@@ -110,3 +116,6 @@ int main(void) {
   (interactive)
   (server-force-delete)
   (server-start))
+
+(defun fonix-box-p ()
+  (file-exists-p "/home/fds/"))

@@ -1,5 +1,4 @@
-(unless (package-installed-p 'projectile)
-  (package-install 'projectile))
+(maybe-install-package 'projectile)
 (projectile-global-mode)
 
 

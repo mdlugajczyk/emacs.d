@@ -1,25 +1,15 @@
-(unless (package-installed-p 'ruby-electric)
-  (package-install 'ruby-electric))
+(maybe-install-package 'rvm)
+(maybe-install-package 'ruby-electric)
+(maybe-install-package 'rinari)
+(maybe-install-package 'rspec-mode)
+(maybe-install-package 'flymake-ruby)
 
-(unless (package-installed-p 'rinari)
-  (package-install 'rinari))
-
-(unless (package-installed-p 'rspec-mode)
-  (package-install 'rspec-mode))
-
-(unless (package-installed-p 'flymake-ruby)
-  (package-install 'flymake-ruby))
-
-(unless (package-installed-p 'rvm)
-  (package-install 'rvm))
-
-(defun ruby-insert-end () 
-  "Insert \"end\" at point and reindent current line." 
-  (interactive) 
-  (insert "end") 
-  (ruby-indent-line t) 
+(defun ruby-insert-end ()
+  "Insert \"end\" at point and reindent current line."
+  (interactive)
+  (insert "end")
+  (ruby-indent-line t)
   (end-of-line))
-
 
 (add-hook 'ruby-mode-hook
       (lambda ()
@@ -31,11 +21,7 @@
 	  "Use BASH shell for running the specs because of ZSH issues."
 	  (let ((shell-file-name "/bin/bash"))
 	    ad-do-it))
-        (ruby-electric-mode t)
+	(ruby-electric-mode t)
 	(flymake-ruby-load)
 	(ad-activate 'rspec-compile)
 	(setq rspec-use-rvm t)))
-
-
-
-

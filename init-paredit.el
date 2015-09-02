@@ -1,5 +1,4 @@
-(unless (package-installed-p 'paredit)
-  (package-install 'paredit))
+(maybe-install-package 'paredit)
 
 (dolist (hook (list
                'emacs-lisp-mode-hook

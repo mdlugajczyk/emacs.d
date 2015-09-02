@@ -7,7 +7,7 @@
 (global-set-key (kbd "C-m") 'newline-and-indent)
 (global-set-key (kbd "C-x c") 'kill-compilation-buffer)
 ;(global-set-key (kbd "C-c C-r") 'sudo-edit-current-file)
-
+(global-set-key (kbd "C-c g") 'magit-status)
 
 (setq mac-option-key-is-meta t)
 (setq mac-right-option-modifier nil)
