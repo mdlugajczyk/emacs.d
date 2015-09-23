@@ -23,8 +23,8 @@
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
 (set-default-font
- "-apple-Monaco-medium-normal-normal-*-*-*-*-*-m-0-iso10646-2")
-(set-face-attribute 'default nil :height 130)
+"-*-Inconsolata-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+(set-face-attribute 'default nil :height 170)
 (column-number-mode 1)
 (line-number-mode 1)
 (setq scroll-step 1)
@@ -105,8 +105,6 @@ int main(void) {
   (unless (package-installed-p package)
     (package-install package)))
 
-;; (unless (package-installed-p 'nyan-mode)
-;;   (package-install 'nyan-mode))
 (maybe-install-package 'nyan-mode)
 
 (when window-system
