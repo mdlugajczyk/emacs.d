@@ -24,7 +24,7 @@
 
 (set-default-font
 "-*-Inconsolata-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-(set-face-attribute 'default nil :height 170)
+(set-face-attribute 'default nil :height 160)
 (column-number-mode 1)
 (line-number-mode 1)
 (setq scroll-step 1)
