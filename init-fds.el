@@ -1,6 +1,12 @@
-(add-to-list 'load-path "/home/fonix/prd_progs/tools/conf/emacs/")
-(load "fds-common.el")
-(load "p4.el")
+;(add-to-list 'load-path "/home/fonix/prd_progs/tools/conf/emacs/")
+(add-to-list 'load-path "/home/user/mdlugajczyk/.emacs.d/fds-tools/")
+(load "deps-mode.el")
+(load "fds-useful.el")
+
+(maybe-install-package 'p4)
+(require 'p4)
+(require 'deps-mode)
+(add-to-list 'auto-mode-alist '("\\.\\(DEPS\\|deps\\)\\'" . deps-mode))
 
 (require 'ansi-color)
 (defun colorize-compilation-buffer ()
