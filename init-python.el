@@ -1,6 +1,7 @@
 (maybe-install-package 'nose)
 (maybe-install-package 'jedi)
 (maybe-install-package 'ein)
+(maybe-install-package 'pyvenv)
 
 (add-hook 'python-mode-hook
 	  (lambda ()
