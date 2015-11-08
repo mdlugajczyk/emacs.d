@@ -4,6 +4,7 @@
 (setenv "WORKON_HOME" (concat (getenv "HOME") "/elpy-env"))
 (setq pyvenv-workon "elpy-env")
 (elpy-enable)
+(elpy-set-test-runner 'elpy-test-nose-runner)
 (add-hook 'python-mode-hook
 	  (lambda ()
 	    (elpy-mode)
