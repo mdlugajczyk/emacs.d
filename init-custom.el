@@ -105,11 +105,6 @@ int main(void) {
   (unless (package-installed-p package)
     (package-install package)))
 
-(maybe-install-package 'nyan-mode)
-
-(when window-system
-  (nyan-mode))
-
 (defun restart-server ()
   (interactive)
   (server-force-delete)
