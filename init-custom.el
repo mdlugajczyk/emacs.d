@@ -100,15 +100,8 @@ int main(void) {
 };
 "))))
 
-
-(defun maybe-install-package (package)
-  (unless (package-installed-p package)
-    (package-install package)))
-
 (defun restart-server ()
   (interactive)
   (server-force-delete)
   (server-start))
 
-(defun fonix-box-p ()
-  (file-exists-p "/home/fds/"))

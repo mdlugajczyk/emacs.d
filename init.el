@@ -3,11 +3,20 @@
 ;; Hide splash screen.
 (setq inhibit-splash-screen t)
 
+(defun fonix-box-p ()
+  (file-exists-p "/home/fds/"))
+
+(defun maybe-install-package (package)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (defun load-config (config)
   (load (concat "~/.emacs.d/init-" config)))
 
 (let ((file-name-handler-alist nil)) 
   (load-config "package-manager.el")
+  (unless (fonix-box-p)
+    (load-config "color-theme.el"))
   (load-config "custom.el")
   (load-config "paredit.el")
   (load-config "complete.el")
@@ -18,7 +27,7 @@
   (load-config "python")
 
   (unless (fonix-box-p)
-    (load-config "color-theme.el")
+    
     (load-config "clojure.el")
     (load-config "haskell.el")
     (load-config "ruby.el")
