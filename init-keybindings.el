@@ -1,5 +1,3 @@
-(global-set-key (kbd "C-x C-c") nil)
-
 (global-set-key (kbd "C-h") 'backward-delete-char)
 (global-set-key (kbd "<f9>") 'compile)
 (global-set-key (kbd "<f8>") 'recompile)
