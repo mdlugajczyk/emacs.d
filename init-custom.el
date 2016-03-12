@@ -30,7 +30,7 @@
 (setq scroll-step 1)
 (setq display-time-24hr-format t) 
 (fset 'yes-or-no-p 'y-or-n-p)
-(ido-mode)
+(iswitchb-mode)
 
 ; spell checking
 (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1/bin/aspell")
