@@ -25,6 +25,7 @@
   (load-config "git.el")
   (load-config "org.el")
   (load-config "python")
+  (load-config "asm")
 
   (unless (fonix-box-p)
     
