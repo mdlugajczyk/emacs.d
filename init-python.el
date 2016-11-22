@@ -9,7 +9,8 @@
 	  (lambda ()
 	    (elpy-mode)
 	    (pyvenv-workon ".")
-	    (unless (eq buffer-file-name nil) (flymake-mode 1))))
+	    (unless (eq buffer-file-name nil) (flymake-mode 1))
+	    (highlight-indentation-mode -1)))
 
 ;; (unless (fonix-box-p)
 ;;   (setq
