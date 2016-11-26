@@ -1,7 +1,5 @@
 (require 'cc-mode)
 
-(maybe-install-package 'ggtags)
-
 (setq c-default-style "linux"
       c-basic-offset 2)
 (c-set-offset 'substatement-open 0)
@@ -12,13 +10,7 @@
   (setq c-default-style "linux"
 	c-basic-offset 2)
   (c-set-offset 'substatement-open 0)
-  (c-set-offset 'brace-list-open 0)
-  (require 'ggtags)
-  (ggtags-mode 1)
-  (define-key ggtags-mode-map (kbd "M-*") 'ggtags-navigation-mode-done)
-  (define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
-  (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
-  (setq company-backends (delete 'company-clang company-backends)))
+  (c-set-offset 'brace-list-open 0))
 
 (add-hook 'c-mode-hook
 	  (lambda ()
@@ -28,20 +20,29 @@
 	  (lambda ()
 	    (setup-c++-buffer)))
 
-(unless (fonix-box-p)
-  (maybe-install-package 'semantic)
-  (require 'semantic)
-  (global-semanticdb-minor-mode 1)
-  (global-semantic-idle-scheduler-mode 1)
-  (semantic-mode 1)
-  (maybe-install-package 'function-args)
-  (require 'function-args)
-  (fa-config-default)
-  (define-key c-mode-map  [(control tab)] 'moo-complete)
-  (define-key c++-mode-map  [(control tab)] 'moo-complete)
-  (define-key c-mode-map (kbd "M-o")  'fa-show)
-  (define-key c++-mode-map (kbd "M-o")  'fa-show))
+(add-hook 'before-save-hook
+	  (lambda ()
+	    (when (eq major-mode 'c++-mode)
+	     (clang-format-buffer))))
 
 (add-hook 'gud-gdb-mode-hook
 	  (lambda ()
 	    (company-mode -1)))
+
+(defun setup-flycheck-rtags ()
+  (interactive)
+  (flycheck-select-checker 'rtags)
+  ;; RTags creates more accurate overlays.
+  (setq-local flycheck-highlighting-mode t)
+  (setq-local flycheck-check-syntax-automatically t))
+
+(when (require 'rtags nil :noerror)
+  (rtags-enable-standard-keybindings)
+;  (setq rtags-use-helm t)
+  (setq rtags-autostart-diagnostics t)
+  (rtags-diagnostics)
+  (setq rtags-completions-enabled t)
+  (push 'company-rtags company-backends)
+  (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
+  (require 'flycheck-rtags)
+  (add-hook 'c-mode-common-hook #'setup-flycheck-rtags))
