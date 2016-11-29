@@ -6,3 +6,5 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
+(global-set-key (kbd "C-c c") 'org-capture)
+(setq org-default-notes-file "~/notes.org")
