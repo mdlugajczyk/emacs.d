@@ -17,23 +17,25 @@
 (add-hook 'nrepl-mode-hook 'subword-mode)
  
 ;; Auto completion for NREPL
-;; (unless (package-installed-p 'ac-nrepl)
-;;   (package-install 'ac-nrepl))
-;; (require 'ac-nrepl)
-;; (eval-after-load "auto-complete"
-;;   '(add-to-list 'ac-modes 'nrepl-mode))
-;; (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-;; (require 'auto-complete)
+(unless (package-installed-p 'ac-nrepl)
+  (package-install 'ac-nrepl))
+(require 'ac-nrepl)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(require 'auto-complete)
 (unless (package-installed-p 'cider)
   (package-install 'cider))
 
-;(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-;(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-;(add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
-(unless (package-installed-p 'cider)
-  (package-install 'cider))
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+
+;; (add-hook 'cider-repl-mode-hook #'company-mode)
+;; (add-hook 'cider-mode-hook #'company-mode)
+
 ;; (eval-after-load "auto-complete"
 ;;    '(add-to-list 'ac-modes 'nrepl-mode))
 
