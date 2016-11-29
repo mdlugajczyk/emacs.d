@@ -5,6 +5,8 @@
 (c-set-offset 'substatement-open 0)
 (c-set-offset 'brace-list-open 0)
 
+(defvar company-clang-executable "/home/dev/build/llvm/bin/clang")
+
 (defun setup-c++-buffer ()
   (c-set-style "linux")
   (setq c-default-style "linux"
@@ -46,3 +48,5 @@
   (define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
   (require 'flycheck-rtags)
   (add-hook 'c-mode-common-hook #'setup-flycheck-rtags))
+
+(setq compilation-scroll-output t)
