@@ -26,13 +26,13 @@
   (load-config "org.el")
   (load-config "python")
   (load-config "asm")
+  (load-config "projectile.el")
+  (load-config "color-theme.el")
 
   (unless (fonix-box-p)
-    
     (load-config "clojure.el")
     (load-config "haskell.el")
     (load-config "ruby.el")
-    (load-config "projectile.el")
     (load-config "web.el")
     (load-config "tex")
     (maybe-install-package 'exec-path-from-shell)
