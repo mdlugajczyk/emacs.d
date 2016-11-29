@@ -7,12 +7,18 @@
 
 (defvar company-clang-executable "/home/dev/build/llvm/bin/clang")
 
+(maybe-install-package 'rtags)
+(maybe-install-package 'flycheck)
+
 (defun setup-c++-buffer ()
   (c-set-style "linux")
   (setq c-default-style "linux"
 	c-basic-offset 2)
   (c-set-offset 'substatement-open 0)
   (c-set-offset 'brace-list-open 0))
+
+(define-key c++-mode-map (kbd "C-M-a") 'c-beginning-of-defun)
+
 
 (add-hook 'c-mode-hook
 	  (lambda ()
@@ -22,10 +28,12 @@
 	  (lambda ()
 	    (setup-c++-buffer)))
 
-(add-hook 'before-save-hook
-	  (lambda ()
-	    (when (eq major-mode 'c++-mode)
-	     (clang-format-buffer))))
+(unless (fonix-box-p)
+  (add-hook 'before-save-hook
+	    (lambda ()
+	      (when (eq major-mode 'c++-mode)
+		(clang-format-buffer)))))
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
 
 (add-hook 'gud-gdb-mode-hook
 	  (lambda ()
