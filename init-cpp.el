@@ -60,4 +60,4 @@
   (define-key c-mode-base-map (kbd "M-;") (function rtags-find-file))
   (define-key c-mode-base-map (kbd "C-.") (function rtags-find-symbol))
   (define-key c-mode-base-map (kbd "C-,") (function rtags-find-references))
-  (define-key c-mode-base-map (kbd "C-;") (function comment-dwim)))
+  (define-key c-mode-base-map (kbd "M-;") (function comment-dwim)))
